@@ -11,6 +11,7 @@
 		44DAA5EE2260F1FA005EACF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DAA5ED2260F1FA005EACF3 /* ViewController.swift */; };
 		44DAA5F02260F1FC005EACF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44DAA5EF2260F1FC005EACF3 /* Assets.xcassets */; };
 		44DAA5F32260F1FC005EACF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44DAA5F12260F1FC005EACF3 /* Main.storyboard */; };
+		44DAA5FC226108C7005EACF3 /* FontsDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DAA5FB226108C7005EACF3 /* FontsDisplayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		44DAA5F22260F1FC005EACF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44DAA5F42260F1FC005EACF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44DAA5F52260F1FC005EACF3 /* Font_Viewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Font_Viewer.entitlements; sourceTree = "<group>"; };
+		44DAA5FB226108C7005EACF3 /* FontsDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsDisplayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				44DAA5EB2260F1FA005EACF3 /* AppDelegate.swift */,
 				44DAA5ED2260F1FA005EACF3 /* ViewController.swift */,
+				44DAA5FB226108C7005EACF3 /* FontsDisplayViewController.swift */,
 				44DAA5EF2260F1FC005EACF3 /* Assets.xcassets */,
 				44DAA5F12260F1FC005EACF3 /* Main.storyboard */,
 				44DAA5F42260F1FC005EACF3 /* Info.plist */,
@@ -134,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44DAA5EE2260F1FA005EACF3 /* ViewController.swift in Sources */,
+				44DAA5FC226108C7005EACF3 /* FontsDisplayViewController.swift in Sources */,
 				44DAA5EC2260F1FA005EACF3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -56,7 +58,7 @@
                             </menuItem>
                             <menuItem title="File" id="dMs-cI-mzQ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="File" id="bib-Uj-vzu">
+                                <menu key="submenu" title="File" autoenablesItems="NO" id="bib-Uj-vzu">
                                     <items>
                                         <menuItem title="New" keyEquivalent="n" id="Was-JA-tGl">
                                             <connections>
@@ -673,7 +675,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Font_Viewer" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -683,11 +685,14 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                    <window key="window" title="Font Viewer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="480" height="270"/>
+                        <value key="maxSize" type="size" width="480" height="270"/>
+                        <value key="minFullScreenContentSize" type="size" width="480" height="270"/>
+                        <value key="maxFullScreenContentSize" type="size" width="480" height="270"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -703,15 +708,183 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Font_Viewer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bM3-kV-Ds0">
+                                <rect key="frame" x="18" y="226" width="445" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="sZR-l4-ShU"/>
+                                </constraints>
+                                <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="njK-7J-dXO" id="6k2-v4-Rd6">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="KdF-mk-y8q">
+                                        <items>
+                                            <menuItem title="Item 1" state="on" id="njK-7J-dXO"/>
+                                            <menuItem title="Item 2" id="mEg-mz-lSv"/>
+                                            <menuItem title="Item 3" id="hHU-yU-VPi"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="handleFontFamilySelection:" target="XfG-lQ-9wD" id="dwb-s7-Olz"/>
+                                </connections>
+                            </popUpButton>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6W8-S1-A4L">
+                                <rect key="frame" x="18" y="185" width="445" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="XxK-nD-AhJ"/>
+                                </constraints>
+                                <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="yNq-wp-H56" id="3KJ-W8-1pP">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="qUR-f0-mF0">
+                                        <items>
+                                            <menuItem title="Item 1" state="on" id="yNq-wp-H56"/>
+                                            <menuItem title="Item 2" id="guv-n9-Vsd"/>
+                                            <menuItem title="Item 3" id="3mD-3e-C1E"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="handleFontTypeSelection:" target="XfG-lQ-9wD" id="rC0-Y0-OwE"/>
+                                </connections>
+                            </popUpButton>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="to6-y1-ivv">
+                                <rect key="frame" x="149" y="13" width="182" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="10B-Ly-cPD"/>
+                                    <constraint firstAttribute="width" constant="170" id="5qT-G4-6W2"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Display Font Weights" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NU3-2J-hhV">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="displayAllFonts:" target="XfG-lQ-9wD" id="CIW-8f-Xbe"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nZs-Ca-Hbb">
+                                <rect key="frame" x="18" y="88" width="444" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="oJ3-Lr-EWA"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="qfZ-q9-jMB">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="bM3-kV-Ds0" secondAttribute="trailing" constant="20" id="1uz-Df-LZI"/>
+                            <constraint firstItem="to6-y1-ivv" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="B5s-Va-Sq6"/>
+                            <constraint firstItem="nZs-Ca-Hbb" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="L75-1i-6nP"/>
+                            <constraint firstItem="bM3-kV-Ds0" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="PFy-Vh-aiR"/>
+                            <constraint firstAttribute="bottom" secondItem="to6-y1-ivv" secondAttribute="bottom" constant="20" id="QMZ-US-8cA"/>
+                            <constraint firstItem="nZs-Ca-Hbb" firstAttribute="top" secondItem="6W8-S1-A4L" secondAttribute="bottom" constant="20" id="XU9-lZ-Hjj"/>
+                            <constraint firstItem="bM3-kV-Ds0" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="Xf5-jK-Kqq"/>
+                            <constraint firstItem="6W8-S1-A4L" firstAttribute="top" secondItem="bM3-kV-Ds0" secondAttribute="bottom" constant="20" id="h6s-Tg-oYd"/>
+                            <constraint firstItem="6W8-S1-A4L" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="s6E-wf-tFw"/>
+                            <constraint firstAttribute="trailing" secondItem="6W8-S1-A4L" secondAttribute="trailing" constant="20" id="tV2-KW-V1C"/>
+                            <constraint firstAttribute="trailing" secondItem="nZs-Ca-Hbb" secondAttribute="trailing" constant="20" id="xFP-Ch-zV6"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fontFamiliesPopup" destination="bM3-kV-Ds0" id="beB-fO-WX8"/>
+                        <outlet property="fontTypesPopup" destination="6W8-S1-A4L" id="br5-Ag-sI4"/>
+                        <outlet property="sampleLabel" destination="nZs-Ca-Hbb" id="F3w-CN-ugT"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="655"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="toI-Td-wec">
+            <objects>
+                <windowController storyboardIdentifier="fontsDisplayStoryboardID" id="mpC-VT-cVL" sceneMemberID="viewController">
+                    <window key="window" title="Fonts Display" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="zQX-0v-3LP" customClass="NSPanel">
+                        <windowStyleMask key="styleMask" titled="YES" resizable="YES" utility="YES" HUD="YES"/>
+                        <rect key="contentRect" x="425" y="461" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+                        <value key="minSize" type="size" width="480" height="270"/>
+                        <connections>
+                            <outlet property="delegate" destination="mpC-VT-cVL" id="xxJ-CF-7oR"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="fzn-L5-ldT" kind="relationship" relationship="window.shadowedContentViewController" id="gBb-wo-Suy"/>
+                    </connections>
+                </windowController>
+                <customObject id="swG-7o-tGi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="1127"/>
+        </scene>
+        <!--Fonts Display View Controller-->
+        <scene sceneID="PP4-fl-9Zo">
+            <objects>
+                <viewController id="fzn-L5-ldT" customClass="FontsDisplayViewController" customModule="Font_Viewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="21v-z3-2dR">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R0R-ca-CBz">
+                                <rect key="frame" x="199" y="13" width="82" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="1Rc-xm-fzh"/>
+                                    <constraint firstAttribute="width" constant="70" id="EIh-yR-s6V"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Sck-7e-HcZ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="closeWindow:" target="fzn-L5-ldT" id="lmU-te-mMB"/>
+                                </connections>
+                            </button>
+                            <scrollView appearanceType="aqua" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mdO-wA-HJH">
+                                <rect key="frame" x="20" y="60" width="460" height="210"/>
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="QuO-Yw-izw">
+                                    <rect key="frame" x="0.0" y="0.0" width="460" height="210"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView editable="NO" selectable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" allowsDocumentBackgroundColorChange="YES" id="0jE-Xa-QW2">
+                                            <rect key="frame" x="0.0" y="0.0" width="460" height="210"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <size key="minSize" width="460" height="210"/>
+                                            <size key="maxSize" width="480" height="10000000"/>
+                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                </clipView>
+                                <edgeInsets key="contentInsets" left="0.0" right="0.0" top="20" bottom="0.0"/>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="kFl-ur-9f1">
+                                    <rect key="frame" x="444" y="20" width="16" height="190"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="R0R-ca-CBz" firstAttribute="centerX" secondItem="21v-z3-2dR" secondAttribute="centerX" id="1fF-Qi-S9Y"/>
+                            <constraint firstItem="mdO-wA-HJH" firstAttribute="top" secondItem="21v-z3-2dR" secondAttribute="top" id="71m-8O-EMJ"/>
+                            <constraint firstItem="mdO-wA-HJH" firstAttribute="leading" secondItem="21v-z3-2dR" secondAttribute="leading" constant="20" id="GDT-qD-sUb"/>
+                            <constraint firstAttribute="trailing" secondItem="mdO-wA-HJH" secondAttribute="trailing" id="Ttm-rc-L5A"/>
+                            <constraint firstAttribute="bottom" secondItem="R0R-ca-CBz" secondAttribute="bottom" constant="20" id="VSS-FJ-Cf2"/>
+                            <constraint firstItem="R0R-ca-CBz" firstAttribute="top" secondItem="mdO-wA-HJH" secondAttribute="bottom" constant="19" id="hQl-AZ-KME"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="fontsTextView" destination="0jE-Xa-QW2" id="QiF-AG-iS8"/>
+                    </connections>
+                </viewController>
+                <customObject id="WF2-5o-wSn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="74" y="1574"/>
         </scene>
     </scenes>
 </document>
